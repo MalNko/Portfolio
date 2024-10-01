@@ -1,10 +1,10 @@
 {
-  "name": "your-app-name", 
+  "name": "my-portfolio",
   "version": "1.0.0",
-  "description": "Your app description",
+  "description": "My Portfolio Website",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"  
+    "start": "node app.js"
   },
   "engines": {
     "node": ">=14.0.0",  
