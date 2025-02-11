@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Malusi Nkosi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="Index.html">
+            <div class="icon-container">
+                <img src="Images/Preview.png" alt="Preview Logo">
+            </div>
+        </a>
+        <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="About Me.html">About Me</a></li>
+            <li><a href="Malusi Thandolwethu Nathan Nkosi-CV.pdf">Experience</a></li>
+            <li><a href="Licenses.html">Licenses</a></li>
+        </ul>
+        <a href="Contact.html" class="contact-btn">Contact Me</a>
+    </nav>
+
+    <!-- Education Section -->
+    <section class="education">
+        <div class="education-content fade-in-up">
+            <h2>Education</h2>
+            <p>Find out more about my Educational/Academic pursuits.</p>
+            <div class="education-details">
+                <h3>Bachelor's Degree in Software Engineering</h3>
+                <p><strong>Institution:</strong> Eduvos</p>
+                <p><strong>Year:</strong> 2025 - 2028</p>
+                <p><strong>Key Learnings:</strong> Data Structures, Algorithms, Machine Learning, Web Development</p>
+            </div>
+            <div class="education-details">
+                <h3>Software Development</h3>
+                <p><strong>Platform:</strong> Eduvos</p>
+                <p><strong>Year:</strong> 2024</p>
+                <p><strong>Key Learnings:</strong> C#, Kotlin, Swift, flutter, Python, HTML, CSS, JavaScript, React, Node.js, Express</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for fade-in effect -->
+    <script>
+        // IntersectionObserver to add the 'visible' class when the element is in view
+        const fadeInElements = document.querySelectorAll('.fade-in-up');
+
+        const options = {
+            threshold: 0.5  // Trigger animation when 50% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once the element is visible
+                }
+            });
+        }, options);
+
+        fadeInElements.forEach(element => {
+            observer.observe(element);  // Start observing each element with the 'fade-in-up' class
+        });
+    </script>
+
+</body>
+</html>

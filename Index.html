@@ -1,35 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Malusi Nkosi | Developer</title>
-        <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
-    </head>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malusi Nkosi | Developer</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to styles.css within the 'docs' folder -->
+</head>
 <body>
     <!-- Navbar -->
-    <nav>
-        <a href="/Index.html"><div class="icon-container"><img src="/Images/Preview.png"></div></a>
+    <nav class="navbar">
+        <a href="Index.html">
+            <div class="icon-container">
+                <img src="Images/Preview.png" alt="Preview Logo">
+            </div>
+        </a>
         <ul class="nav-links">
-            <li><a href="/Index.html">Home</a></li>
-            <li><a href="/About Me.html" >About Me</a></li>
-            <li><a href="/Projects.html">Projects</a></li>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="Projects.html">Projects</a></li>
         </ul>
-        <a href="/Contact.html" class="btn contact-btn">Contact Me</a>
+        <a href="Contact.html" class="contact-btn">Contact Me</a>
     </nav>
 
     <!-- Main Content Section -->
-    <div class="main-section">
-        <div class="content">
-            <h1>Hi, I'm <span>Malusi</span>, Software Developer & Engineering Student</h1>
-            <p>Aspiring Software Engineer with a strong foundation in full-stack development and a passion for creating scalable, user-focused applications. Experienced in working with modern technologies like JavaScript, Python, and cloud platforms.</p>
-            <p>Driven by a commitment to continuous learning and a love for problem-solving, I thrive in collaborative environments where innovation meets practicality. Eager to contribute to cutting-edge projects and grow within the tech industry.</p>
-            <a href="#contact" class="btn">Contact Me</a>
+    <section class="main-section container">
+        <div class="content-section content fade-in-left">
+            <h1 class="main-title">Hi, I'm <span class="highlight">Malusi Nkosi,</span></h1>
+            <h2 class="sub-title">Software Developer & Engineering Student</h2>
+            <p class="description">Aspiring Software Engineer with a strong foundation in full-stack development and a passion for creating scalable, user-focused applications. Experienced in working with modern technologies like JavaScript, Python, and cloud platforms.</p>
+            <p class="description">Driven by a commitment to continuous learning and a love for problem-solving, I thrive in collaborative environments where innovation meets practicality. Eager to contribute to cutting-edge projects and grow within the tech industry.</p>
+            <a href="Contact.html" class="btn">Contact Me</a>
         </div>
-        <div class="image-container">
-            <img src="/Images/Developer_Image.jpg" alt="Developer Image">
+        <div class="image-container fade-in-right">
+            <img src="Images/Developer_Image.jpg" alt="Developer Image" class="developer-image">
         </div>
-    </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const elementsToAnimate = document.querySelectorAll('.fade-in-left, .fade-in-right, .fade-in-up');
+        
+            function animateOnScroll() {
+                elementsToAnimate.forEach(element => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+        
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Trigger the animation when the page loads
+        });
+    </script>
 </body>
 </html>

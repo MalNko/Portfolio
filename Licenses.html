@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licenses & Certificates - Malusi Nkosi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="Index.html">
+            <div class="icon-container">
+                <img src="Images/Preview.png" alt="Preview Logo">
+            </div>
+        </a>
+        <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="About Me.html">About Me</a></li>
+            <li><a href="Education.html">Education</a></li>
+            <li><a href="Malusi Thandolwethu Nathan Nkosi-CV.pdf">Experience</a></li>
+        </ul>
+        <a href="Contact.html" class="contact-btn">Contact Me</a>
+    </nav>
+
+    <!-- Licenses & Certificates Section -->
+    <section class="licenses">
+        <div class="card">
+            <span class="icon">📜</span>
+            <h3>Licenses & Certificates</h3>
+            <p>All of the Licenses & Certifications that I have acquired.</p>
+            <p class="update-notice"><strong>Note:</strong> This section is currently under development. I am in the process of obtaining and verifying my licenses and certifications. Please check back soon for updates!</p>
+            <a href="Licenses.html"></a>
+        </div>
+    </section>
+    <!-- 3D Globe -->
+    <div id="globe-container"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- JavaScript for Particle Animation and Text Fade-in Effect -->
+    <script>
+        // IntersectionObserver to add the 'visible' class when the element is in view
+        const fadeInElements = document.querySelectorAll('.fade-in-up');
+
+        const options = {
+            threshold: 0.5  // Trigger animation when 50% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once the element is visible
+                }
+            });
+        }, options);
+
+        fadeInElements.forEach(element => {
+            observer.observe(element);  // Start observing each element with the 'fade-in-up' class
+        });
+
+        // Particle Effect
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Resize canvas to fit window
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Particle array
+        let particlesArray = [];
+
+        // Particle class
+        class Particle {
+            constructor(x, y, size, speedX, speedY, color) {
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.speedX = speedX;
+                this.speedY = speedY;
+                this.color = color;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.1; // Shrink particles
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+
+        // Function to create particles from the globe center
+        function createParticles() {
+            const globeX = canvas.width / 2;
+            const globeY = canvas.height / 2;
+            const color = 'rgba(255, 255, 255, 0.7)';
+            const speed = (Math.random() * 3) - 1.5; // Random speed
+            const size = Math.random() * 5 + 1;  // Random size
+            const angle = Math.random() * Math.PI * 2;  // Random angle for particles
+
+            const particleX = globeX + Math.cos(angle) * 80; // Random position around the globe
+            const particleY = globeY + Math.sin(angle) * 80; // Random position around the globe
+
+            particlesArray.push(new Particle(particleX, particleY, size, speed * Math.cos(angle), speed * Math.sin(angle), color));
+        }
+
+        // Animate particles
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                if (particlesArray[i].size <= 0.2) {
+                    particlesArray.splice(i, 1); // Remove small particles
+                    i--;
+                }
+            }
+            requestAnimationFrame(animateParticles); // Call the function recursively
+        }
+
+        // Emit particles at intervals
+        setInterval(createParticles, 50);
+
+        animateParticles(); // Start the animation loop
+
+        // Resize canvas when window is resized
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+
+</body>
+</html>

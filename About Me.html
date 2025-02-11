@@ -3,43 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Malusi Nkosi</title>
-    <link rel="stylesheet" href="/styles.css">
+    <title>About Me | Malusi Nkosi</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your external CSS -->
 </head>
 <body>
-
-    <!-- Navigation Bar -->
+    <!-- Navbar -->
     <nav>
-       <a href="/Index.html"><div class="icon-container"><img src="/Images/Preview.png"></div></a>
+        <a href="Index.html">
+            <div class="icon-container">
+                <img src="Images/Preview.png" alt="Preview Logo">
+            </div>
+        </a>
         <ul>
-            <li><a href="/Index.html">Home</a></li>
-            <li><a href="/About Me.html">About Me</a></li>
-            <li><a href="/Projects.html">Projects</a></li>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="Education.html">Education</a></li>
+            <li><a href="Malusi Thandolwethu Nathan Nkosi-CV.pdf">Experience</a></li>
+            <li><a href="Licenses.html">Licenses</a></li>
         </ul>
-        <a href="/Contact.html" class="contact-btn">Contact Me</a>
+        <a href="Contact.html" class="contact-btn">Contact Me</a>
     </nav>
 
-    <!-- About Me Section -->
+    <!-- About Section -->
     <section class="about-section">
         <div class="about-content">
-            <h1>About <span>Malusi Nkosi</span></h1>
-            <div class="about-image">
-                <img src="/Images/About_Me_Image.jpg" alt="Malusi Nkosi">
+            <h1>About Me</h1>
+            <div class="tile fade-in-bottom">
+                <p><strong>Hi, I'm Malusi Thandolwethu Nathan Nkosi,</strong> a Software Engineer from Durban, South Africa. Currently, I’m pursuing my BSc in Software Engineering at Eduvos...</p>
             </div>
-            <div class="about-text">
-                <p>
-                    I am a 20-year-old goal-oriented, dedicated, and ambitious student, currently pursuing a degree in Software Engineering with a focus on Data Science. My journey as a developer is driven by a passion for innovation and learning.
-                </p>
-                <p>
-                    With hands-on experience in modern technologies, I am enthusiastic about the evolving field of data science and artificial intelligence. I am particularly passionate about using cutting-edge technologies to solve real-world problems and create innovative applications.
-                </p>
-                <p>
-                    I am eager to collaborate, intern, and contribute to impactful projects that allow me to grow and make a positive impact in the tech industry.
-                </p>
-                <p class="thank-you">THANK YOU FOR TAKING AN INTEREST!!</p>
+            <div class="tile fade-in-bottom">
+                <p>I’m experienced in both front-end and back-end development, with proficiency in programming languages like C#, Java, and Delphi...</p>
+            </div>
+            <div class="tile fade-in-bottom">
+                <p>One of my key strengths lies in my ability to communicate complex technical concepts in a simple and accessible way...</p>
+            </div>
+            <div class="tile fade-in-bottom">
+                <p>My background in software development has given me hands-on experience with tools like Git version control and Linux operating systems...</p>
+            </div>
+            <div class="tile fade-in-bottom">
+                <p>Additionally, growing up in Durban and being fluent in both English and Zulu has influenced my approach to communication...</p>
+            </div>
+            <div class="tile fade-in-bottom">
+                <p>I am eager to bring my skills to a team that values innovation, creativity, and effective communication...</p>
+            </div>
+            <div class="tile fade-in-bottom">
+                <p>Thank you for taking the time to learn more about me! If you’d like to collaborate or discuss opportunities, feel free to reach out.</p>
+            </div>
+            <div class="tile fade-in-bottom">
+                <div class="about-image">
+                    <img src="Images/About_Me_Image.jpg" alt="About Me image">
+                </div>
             </div>
         </div>
     </section>
 
+    
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all tiles to animate
+            const tiles = document.querySelectorAll('.tile');
+            const about_image_img = document.querySelectorAll('about_image_img');
+
+            function animateTilesOnScroll() {
+                tiles.forEach(tile => {
+                    const rect = tile.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100 && rect.bottom >= 0) {
+                        tile.classList.add('visible');
+                    }
+                });
+            }
+
+            // Listen for scroll events to trigger animations
+            window.addEventListener('scroll', animateTilesOnScroll);
+
+            // Trigger the animation when the page initially loads
+            animateTilesOnScroll();
+        });
+    </script>
 </body>
 </html>

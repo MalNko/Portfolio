@@ -4,83 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Malusi Nkosi</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline critical CSS for smooth scrolling */
+        html {
+            scroll-behavior: smooth; /* Native smooth scrolling */
+        }
+    </style>
 </head>
 <body>
-
     <!-- Navigation Bar -->
     <nav>
-        <a href="/Index.html"><div class="icon-container"><img src="/Images/Preview.png"></div></a>
+        <a href="Index.html">
+            <div class="icon-container">
+                <img src="Images/Preview.png" alt="Preview Logo"> <!-- Ensure the path to the image is correct -->
+            </div>
+        </a>
         <ul>
-            <li><a href="/Index.html">Home</a></li>
-            <li><a href="/About Me.html">About Me</a></li>
-            <li><a href="/Projects.html">Projects</a></li>
-
+            <li><a href="About Me.html">About</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="Contact.html">Contact</a></li>
         </ul>
-        <a href="/Contact.html" class="contact-btn">Contact Me</a>
+        <a href="Contact.html" class="contact-btn">Contact Me</a>
     </nav>
 
     <!-- About Me Section -->
-    <section class="about-me">
+    <section id="about" class="about-me">
         <h2>About Me</h2>
         <div class="about-cards">
             <div class="card">
                 <span class="icon">🔍</span>
                 <h3>About</h3>
                 <p>Find out more about me, my interests, and passions.</p>
-                <a href="#" class="learn-more">Learn More →</a>
+                <a href="About Me.html" class="learn-more">Learn More →</a>
             </div>
             <div class="card">
                 <span class="icon">📚</span>
                 <h3>Experience</h3>
                 <p>This is where you'll find all of my previous working experience.</p>
-                <a href="#" class="learn-more">Learn More →</a>
+                <a href="Malusi Thandolwethu Nathan Nkosi-CV.pdf" class="learn-more">Learn More →</a>
             </div>
             <div class="card">
                 <span class="icon">🎓</span>
                 <h3>Education</h3>
                 <p>Find out more about my Educational/Academic pursuits.</p>
-                <a href="#" class="learn-more">Learn More →</a>
+                <a href="Education.html" class="learn-more">Learn More →</a>
             </div>
             <div class="card">
                 <span class="icon">📜</span>
                 <h3>Licenses & Certificates</h3>
                 <p>All of the Licenses & Certifications that I have acquired.</p>
-                <a href="#" class="learn-more">Learn More →</a>
+                <a href="Licenses.html" class="learn-more">Learn More →</a>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="projects">
+    <section id="projects" class="projects">
         <h2>Projects</h2>
         <div class="project-cards">
             <div class="project-card">
-                <h3>Molecular Solubility Prediction Model</h3>
-                <p><strong>Objective:</strong> Predict the solubility of molecules using molecular descriptors.</p>
-                <p><strong>Techniques Used:</strong> Data loading, preparation, splitting, and linear regression model building.</p>
-                <p><strong>Tools/Libraries:</strong> Python, pandas, scikit-learn</p>
-                <p class="tech-used"><strong>Impact:</strong> Accurate prediction for pharmaceutical research.</p>
-                <a href="#" class="view-project-btn">View Project</a>
+                <h3>Banking App</h3>
+                <p><strong>Objective:</strong> Develop a banking application with basic functionalities using Flutter and Dart, integrated with AWS databases.</p>
+                <p><strong>Techniques Used:</strong> Mobile app development, database integration, user authentication.</p>
+                <p><strong>Tools/Libraries:</strong> Flutter, Dart, AWS</p>
+                <p class="tech-used"><strong>Status:</strong> Basic functionalities are complete. Adjustments and additional features are pending based on customer requirements.</p>
+                <a href="https://drive.google.com/file/d/1LdwA4SuWDNLghYYUjqBvCIaHqSlGZP_w/view?usp=sharing" class="view-project-btn" download>Download Project</a>
             </div>
             <div class="project-card">
-                <h3>Predicting Apartment Prices In Mexico</h3>
-                <p><strong>Objective:</strong> Predict apartment prices in Mexico City using relevant features.</p>
-                <p><strong>Techniques Used:</strong> Data loading, preparation, splitting, and linear regression model building.</p>
-                <p><strong>Tools/Libraries:</strong> Python, pandas, scikit-learn</p>
-                <p class="tech-used"><strong>Impact:</strong> Accurate prediction of apartment prices to aid in real estate planning.</p>
-                <a href="#" class="view-project-btn">View Project</a>
-            </div>
-            <div class="project-card">
-                <h3>Air Quality in Dar es Salaam</h3>
-                <p><strong>Objective:</strong> Analyze air quality in Dar es Salaam using relevant features.</p>
-                <p><strong>Techniques Used:</strong> Data splitting, linear regression, ARMA time-series model.</p>
-                <p><strong>Tools/Libraries:</strong> Python, pandas, scikit-learn, ARMA model</p>
-                <p class="tech-used"><strong>Impact:</strong> Improved understanding and monitoring of air quality to inform public health policies.</p>
-                <a href="#" class="view-project-btn">View Project</a>
+                <h3>Web Application with API Endpoints</h3>
+                <p><strong>Objective:</strong> Create a web application featuring API endpoints and database interactions using SQL databases.</p>
+                <p><strong>Techniques Used:</strong> Web development, API design, database management.</p>
+                <p><strong>Tools/Libraries:</strong> HTML, CSS, JavaScript, SQL</p>
+                <p class="tech-used"><strong>Status:</strong> Basic functionalities are complete. Further adjustments are pending based on customer requirements.</p>
+                <a href="https://drive.google.com/file/d/1xAVTwSuIC752hDjHmV4GoaDgkRxMiy4O/view?usp=sharing" class="view-project-btn" download>Download Project</a>
             </div>
         </div>
     </section>
 
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 50, // Adjust offset for sticky navbar
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

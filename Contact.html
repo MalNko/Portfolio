@@ -4,19 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me - Malusi Nkosi</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Use relative path for CSS -->
+    
+    <!-- Include the latest EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script>
+        (function() {
+            emailjs.init("xS59i4ggSnzlUgAeg"); // Your EmailJS Public API Key
+        })();
+    </script>
 </head>
 <body>
 
     <!-- Navigation Bar -->
     <nav>
-        <a href="/Index.html"><div class="icon-container"><img src="/Images/Preview.png"></div></a>
+        <a href="Index.html">
+            <div class="icon-container">
+                <img src="Images/Preview.png" alt="Preview Logo"> <!-- Corrected image path -->
+            </div>
+        </a>
         <ul>
-            <li><a href="/Index.html">Home</a></li>
-            <li><a href="/About Me.html">About Me</a></li>
-            <li><a href="/Projects.html">Projects</a></li>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="Projects.html">Projects</a></li>
+            <li><a href="About Me.html">About Me</a></li>
+            <li><a href="Education.html">Education</a></li>
+            <li><a href="Malusi Thandolwethu Nathan Nkosi-CV.pdf">Experience</a></li>
+            <li><a href="Licenses.html">Licenses</a></li>
         </ul>
-        <a href="#" class="contact-btn">Contact Me</a>
+        <a href="Contact.html" class="contact-btn">Contact Me</a>
     </nav>
 
     <!-- Contact Me Section -->
@@ -30,7 +46,7 @@
             </div>
 
             <!-- Contact Form -->
-            <form id="contact-form" action="/contact" method="POST">
+            <form id="contact-form" action="#" method="POST"> <!-- The form action is handled by JavaScript -->
                 <div class="form-group">
                     <label for="name">Your Name:</label>
                     <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -48,10 +64,9 @@
                 
                 <button type="submit" class="btn">Send Message</button>
             </form>
-            
-            
         </div>
     </section>
 
+    <script src="contact.js"></script> <!-- Relative path to contact.js -->
 </body>
 </html>
